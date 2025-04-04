@@ -1,0 +1,41 @@
+Step 1: Install Requirements
+	pip install telethon python-dotenv
+Step 2: Get API Credentials
+	Using VPN (if in Iran):
+
+		Connect to a non-Iranian server (Germany/Turkey)
+
+	Go to my.telegram.org/apps
+	
+		Create application:
+
+		App title: MyDownloadBot
+
+		Short name: mydlbot
+
+		URL: https://example.com
+
+		Save api_id (number) and api_hash (string)
+Step 3: Create Bot Account
+	In Telegram, message @BotFather
+
+	Send /newbot
+
+	Choose name (e.g., ContentDownloaderBot)
+
+	Save the bot token (format: 123456:ABC-DEF1234...)
+Step 4: Create Project Files
+	Create .env file:
+
+		API_ID=1234567
+		API_HASH=your_api_hash_here
+		BOT_TOKEN=123456:ABC-DEF1234...
+	Create bot.py with this code:
+
+Step 5: Add Proxy (For Iranian Users)
+	client = TelegramClient(
+    'bot',
+    int(os.getenv('API_ID')),
+    os.getenv('API_HASH'),
+    proxy=("socks5", "proxy-host.com", 1080, True, "username", "password")
+	).start(bot_token=os.getenv('BOT_TOKEN'))
